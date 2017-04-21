@@ -263,11 +263,6 @@ abstract class AOffer
             $this->addParam((new Param())->setAttributes($attrNode['attributes'] + ['value' => $attrNode['value']]));
         } else {
             if (!is_null($attrNode['value'])) $this->setField($attrNode['name'], $attrNode['value']);
-            if (!empty($attrNode['attributes'])) {
-                foreach ($attrNode['attributes'] as $name => $value) {
-                    $this->setField($name, $value);
-                }
-            }
         }
 
         return $this;

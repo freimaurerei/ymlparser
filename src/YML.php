@@ -177,9 +177,11 @@ class YML
         $value = '';
         $nodes = [];
 
+        $isEmpty = $xml->isEmptyElement;
+
         $attributes = $this->parseAttributes();
 
-        if (!$xml->isEmptyElement) {
+        if (!$isEmpty) {
             while ($this->read()) {
                 if ($xml->nodeType == \XMLReader::ELEMENT) {
                     $nodes[] = $this->parseNode($path);
@@ -251,7 +253,7 @@ class YML
             }
         }
     }
-    
+
     protected function close()
     {
         $this->pathArr = [];
